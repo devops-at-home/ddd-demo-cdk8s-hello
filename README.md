@@ -23,6 +23,10 @@ yarn test -u
 
 ### Deploy stack
 
+```
+kubectl apply -f dist/ddd-demo-cdk8s.k8s.yaml -n demo
+```
+
 ### Upgrades
 
 ```
