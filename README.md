@@ -5,6 +5,7 @@ AWS CDK8s for generating 'Hello World' workload manifests - demo for DDD Perth 2
 ## Requirements
 
 - NodeJS 14, NPM, and Yarn installed
+- Kubectl installed with `.kube/config` configured to connect to cluster
 
 ## Commands
 
