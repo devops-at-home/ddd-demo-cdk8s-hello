@@ -15,6 +15,8 @@ export class MyChart extends Chart {
 
     const service = new KubeService(this, 'service', {
       spec: {
+        // Use NodePort here instead of LoadBalancer
+        // because we are using AWS Application Load Balancer
         type: 'NodePort',
         ports: [{ port: 80, targetPort: IntOrString.fromNumber(8080) }],
         selector: label,
@@ -23,6 +25,8 @@ export class MyChart extends Chart {
 
     new KubeIngress(this, 'ingress', {
       metadata: {
+        // Annotations to instruct the controller
+        // to spin up the Application Load Balancer in AWS
         annotations: {
           'kubernetes.io/ingress.class': 'alb',
           'alb.ingress.kubernetes.io/scheme': 'internet-facing',
